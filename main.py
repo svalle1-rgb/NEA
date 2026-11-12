@@ -1,18 +1,17 @@
+from blob import Blob
+
 import pygame
+pygame.init()
 
-class Blob():
-    def __init__(self, x, y, speed, vision, energy, metabolism):
-        self.x = x
-        self.y = y
-        self.speed = speed
-        self.vision = vision
-        self.energy = energy
-        self.metabolism = metabolism
+screen = pygame.display.set_mode((900,600))
+pygame.display.set_caption("Natural Selection Simulator")
+clock = pygame.time.Clock()
+blob1 = Blob(450,300,2,50,100,1)
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-    def draw(self, screen):
-        pygame.draw.circle(
-            screen,
-            (0,200,100),
-            (int(self.x), int(self.y)),
-            10
-        )
+screen.fill((30,30,30))
+blob1.draw(screen)
